@@ -1,5 +1,9 @@
 #include "utils.h"
 
+#include "QFile"
+
+#include "QTextStream"
+
 void delay(int msec)
 {
     QTime dieTime= QTime::currentTime().addMSecs(msec);
@@ -29,23 +33,27 @@ const vector<map<string, string>> extract_fileData(string fileName)
     vector<map<string, string>> data;
 
     // open file
-    ifstream file(fileName);
+    string path = ":/data/" + fileName;
+    cout << "Opening file (" << path << ")" << endl;
 
-    if(!file) {
-        cout << "Unable to open the file named: " << fileName;
+    QFile file( QString::fromStdString(path) );
+
+    if(!file.open(QIODevice::ReadOnly)) {
+        cout << "Unable to open the file named: " << fileName << endl;
     }
     else {
-        string tmp;
+        QTextStream in(&file);
+        QString line = in.readLine();
+
         // prepare keys for map
-        getline(file, tmp);
-        vector<string> keys = parseLine(tmp);
+        vector<string> keys = parseLine(line.toStdString());
         // end prepare keys for map
 
-        while(!file.eof()) {
+        while(!in.atEnd()) {
 
             // parse every line of the file remaning
-            getline(file, tmp);
-            vector<string> values = parseLine(tmp);
+            line = in.readLine();
+            vector<string> values = parseLine(line.toStdString());
 
             map<string, string> map_tmp;
             for (unsigned long long i = 0; i < keys.size(); i++) {
@@ -66,6 +74,8 @@ const vector<map<string, string>> extract_fileData(string fileName)
 
 void print_data(vector<map<string, string> > aData)
 {
+    cout << "Printing data :" << endl;
+
     for (unsigned long long i = 0; i < aData.size(); i++) {
         map<string, string> line = aData[i];
         string toCout = "";
@@ -74,7 +84,7 @@ void print_data(vector<map<string, string> > aData)
             toCout += it->first + ": " + it->second + ",";
         }
 
-        cout << i << "(" << toCout << ")" << std::endl;
+        cout << "\t" << i << "(" << toCout << ")" << std::endl;
     }
 }
 
