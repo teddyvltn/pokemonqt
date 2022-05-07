@@ -10,9 +10,11 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    utils.cpp \
     widget.cpp
 
 HEADERS += \
+    utils.h \
     widget.h
 
 FORMS += \
