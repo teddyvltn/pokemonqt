@@ -276,7 +276,8 @@ Makefile: ../pokemon/pokemon.pro E:/Qt/5.15.0/mingw81_32/mkspecs/win32-g++/qmake
 		E:/Qt/5.15.0/mingw81_32/lib/Qt5Gui.prl \
 		E:/Qt/5.15.0/mingw81_32/lib/Qt5Core.prl \
 		E:/Qt/5.15.0/mingw81_32/lib/qtmain.prl \
-		E:/Qt/5.15.0/mingw81_32/mkspecs/features/build_pass.prf
+		E:/Qt/5.15.0/mingw81_32/mkspecs/features/build_pass.prf \
+		../pokemon/qressource.qrc
 	$(QMAKE) -o Makefile ..\pokemon\pokemon.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 E:/Qt/5.15.0/mingw81_32/mkspecs/features/spec_pre.prf:
 E:/Qt/5.15.0/mingw81_32/mkspecs/qdevice.pri:
@@ -485,6 +486,7 @@ E:/Qt/5.15.0/mingw81_32/lib/Qt5Gui.prl:
 E:/Qt/5.15.0/mingw81_32/lib/Qt5Core.prl:
 E:/Qt/5.15.0/mingw81_32/lib/qtmain.prl:
 E:/Qt/5.15.0/mingw81_32/mkspecs/features/build_pass.prf:
+../pokemon/qressource.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\pokemon\pokemon.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

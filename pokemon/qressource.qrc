@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/img"/>
+    <qresource prefix="/data">
+        <file>data/pokemon.txt</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>data/pokemon.txt</file>
+    </qresource>
+</RCC>
