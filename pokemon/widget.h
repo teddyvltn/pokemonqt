@@ -3,19 +3,21 @@
 
 #include <QWidget>
 
+#include "ui_widget.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
-class Widget : public QWidget
+class Widget : public QStackedWidget
 {
     Q_OBJECT
 
 public:
-    Widget(QWidget *parent = nullptr);
+    explicit Widget(QWidget *parent = nullptr);
     ~Widget();
 
 private:
-    Ui::Widget *ui;
+    Ui::StackedWidget *ui;
 };
 #endif // WIDGET_H

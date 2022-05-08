@@ -10,14 +10,21 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    menu/battle.cpp \
+    menu/mainmenu.cpp \
     utils.cpp \
-    widget.cpp
+    widget.cpp \
+    window.cpp
 
 HEADERS += \
+    menu/battle.h \
+    menu/mainmenu.h \
     utils.h \
-    widget.h
+    widget.h \
+    window.h
 
 FORMS += \
+    battle.ui \
     widget.ui
 
 # Default rules for deployment.

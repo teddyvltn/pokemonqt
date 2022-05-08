@@ -1,7 +1,5 @@
 #include "utils.h"
-
 #include "QFile"
-
 #include "QTextStream"
 
 void delay(int msec)
@@ -25,8 +23,6 @@ vector<string> parseLine(string aString)
 
     return keys;
 }
-
-
 
 const vector<map<string, string>> extract_fileData(string fileName)
 {
