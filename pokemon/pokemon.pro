@@ -12,12 +12,16 @@ SOURCES += \
     main.cpp \
     menu/battle.cpp \
     menu/mainmenu.cpp \
+    player.cpp \
+    pokemon.cpp \
     utils.cpp \
     widget.cpp
 
 HEADERS += \
     menu/battle.h \
     menu/mainmenu.h \
+    player.h \
+    pokemon.h \
     utils.h \
     widget.h
 

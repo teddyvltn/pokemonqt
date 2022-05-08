@@ -2,7 +2,6 @@
 #define WIDGET_H
 
 #include <QWidget>
-
 #include "ui_widget.h"
 
 //----------------------

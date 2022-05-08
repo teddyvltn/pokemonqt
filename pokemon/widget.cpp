@@ -4,9 +4,6 @@
 //   Useful functions
 //----------------------
 #include "utils.h"
-#include "window.h"
-
-
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent), ui(new Ui::Widget)
@@ -17,9 +14,9 @@ Widget::Widget(QWidget *parent)
 
     ui->setupUi(this);
 
-
     _mainMenu = new MainMenu;
     _battle = new Battle;
+
     ui->stackedWidget->addWidget(_mainMenu);
     ui->stackedWidget->addWidget(_battle);
 
