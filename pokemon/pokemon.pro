@@ -13,18 +13,17 @@ SOURCES += \
     menu/battle.cpp \
     menu/mainmenu.cpp \
     utils.cpp \
-    widget.cpp \
-    window.cpp
+    widget.cpp
 
 HEADERS += \
     menu/battle.h \
     menu/mainmenu.h \
     utils.h \
-    widget.h \
-    window.h
+    widget.h
 
 FORMS += \
     battle.ui \
+    mainmenu.ui \
     widget.ui
 
 # Default rules for deployment.

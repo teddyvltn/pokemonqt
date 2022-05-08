@@ -1,15 +1,23 @@
 #ifndef BATTLE_H
 #define BATTLE_H
 
-#include "window.h"
-#include "ui_battle.h"
+#include <QWidget>
 
-class Battle : public Window
+QT_BEGIN_NAMESPACE
+namespace Ui { class Battle; }
+QT_END_NAMESPACE
+
+class Battle : public QWidget
 {
-    Ui::Battle *ui;
+    Q_OBJECT
 
 public:
-    Battle(Window* parent=nullptr);
+    explicit Battle(QWidget* parent=0);
+    ~Battle();
+
+private:
+    Ui::Battle* ui;
 };
+
 
 #endif // BATTLE_H
