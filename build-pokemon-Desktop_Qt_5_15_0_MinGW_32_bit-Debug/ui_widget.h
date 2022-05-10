@@ -25,10 +25,10 @@ public:
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
-        Widget->resize(400, 300);
+        Widget->resize(512, 368);
         stackedWidget = new QStackedWidget(Widget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(-10, 0, 411, 301));
+        stackedWidget->setGeometry(QRect(0, 0, 512, 368));
 
         retranslateUi(Widget);
 

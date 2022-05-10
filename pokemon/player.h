@@ -1,16 +1,33 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <string>
+#include <vector>
+
+#include "pokemon.h"
 
 class Player
 {
 protected:
+    int itsIdentifier;
+    bool isAi;
+
     std::string itsName;
 
+    QString itsModel;
+
+    std::vector<Pokemon*>::iterator itsActivePokemon;
+
+    std::vector<Pokemon*> itsPokemons;
 
 public:
-    Player();
+    Player(int identifier);
+    Player(std::string itsName);
+
+    void generatePokemons();
+
+    const std::string &getItsName() const;
+
+    const Pokemon* getItsActivePokemon() const;
 };
 
 #endif // PLAYER_H

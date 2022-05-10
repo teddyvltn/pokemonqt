@@ -14,12 +14,32 @@ class Pokemon
     int itsMaxHP;
     int itsCurrentHP;
 
-    QString itsModel;
+    int itsAttack;
+    int itsDefense;
+    int itsSpeed;
+
+    std::string itsDescription;
+
+    std::string itsModel;
 
     //vector<Moves*> itsMoves;
 
 public:
-    Pokemon();
+    Pokemon(int id);
+
+    int getItsIdentifier() const;
+    void setItsIdentifier(int newItsIdentifier);
+    const std::string &getItsName() const;
+    int getItsLevel() const;
+    void setItsLevel(int newItsLevel);
+    int getItsMaxHP() const;
+    void setItsMaxHP(int newItsMaxHP);
+    int getItsCurrentHP() const;
+    void setItsCurrentHP(int newItsCurrentHP);
+    int getItsAttack() const;
+    int getItsDefense() const;
+    int getItsSpeed() const;
+    const std::string &getItsModel() const;
 };
 
 #endif // POKEMON_H

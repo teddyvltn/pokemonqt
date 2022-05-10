@@ -4,13 +4,13 @@
 //   Useful functions
 //----------------------
 #include "utils.h"
+#include "player.h"
+
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent), ui(new Ui::Widget)
 {
-    auto pokemons = extract_fileData("pokemon.txt");
-    auto type = extract_fileData("type.txt");
-    print_data(pokemons);
+    setFixedSize(WIDTH, HEIGHT);
 
     ui->setupUi(this);
 
@@ -22,6 +22,15 @@ Widget::Widget(QWidget *parent)
 
     ui->stackedWidget->setCurrentIndex(MAIN_MENU);
 
+    aPlayer = new Player("Teddy");
+    anotherPlayer = new Player(1);
+
+    cout << aPlayer->getItsName() << " | " << anotherPlayer->getItsName() << endl;
+
+    aPlayer->generatePokemons();
+    anotherPlayer->generatePokemons();
+
+    //mainMenu -> battle
     connect(_mainMenu, SIGNAL(moveToBattle()), this, SLOT(moveToBattle()));
 
 }
@@ -34,4 +43,5 @@ Widget::~Widget()
 void Widget::moveToBattle()
 {
     ui->stackedWidget->setCurrentIndex(BATTLE);
+    _battle->setupBattle(aPlayer, anotherPlayer);
 }

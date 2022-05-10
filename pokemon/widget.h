@@ -13,6 +13,9 @@
 #define MAIN_MENU 0
 #define BATTLE 1
 
+#define WIDTH 512
+#define HEIGHT 368
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -33,6 +36,9 @@ private:
 
     MainMenu* _mainMenu;
     Battle* _battle;
+
+    Player* aPlayer;
+    Player* anotherPlayer;
 
 };
 #endif // WIDGET_H

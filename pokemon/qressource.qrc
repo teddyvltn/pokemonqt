@@ -1,9 +1,26 @@
 <RCC>
-    <qresource prefix="/img"/>
-    <qresource prefix="/data">
-        <file>data/pokemon.txt</file>
+    <qresource prefix="/ui">
+        <file>img/ballfainted.png</file>
+        <file>img/ballnormal.png</file>
+        <file>img/ballstatus.PNG</file>
+        <file>img/battleboxowned.png</file>
+        <file>img/battleCommand.png</file>
+        <file>img/battleFoeBoxD.png</file>
+        <file>img/battleFoeBoxS.png</file>
+        <file>img/battleLineup.png</file>
+        <file>img/battleMessage.png</file>
+        <file>img/battlePlayerBoxD.png</file>
+        <file>img/battlePlayerBoxS.png</file>
+        <file>img/battlePlayerSafari.png</file>
+        <file>img/overlay.png</file>
     </qresource>
     <qresource prefix="/">
         <file>data/pokemon.txt</file>
+        <file>data/trainer.txt</file>
+        <file>sprites/pokemon/back/1.png</file>
+        <file>sprites/pokemon/back/2.png</file>
+        <file>sprites/pokemon/1.png</file>
+        <file>sprites/pokemon/2.png</file>
+        <file>sprites/pokemon/3.png</file>
     </qresource>
 </RCC>
