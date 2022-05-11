@@ -17,6 +17,7 @@ SOURCES += \
     move.cpp \
     player.cpp \
     pokemon.cpp \
+    type.cpp \
     utils.cpp \
     widget.cpp
 
@@ -29,6 +30,7 @@ HEADERS += \
     move.h \
     player.h \
     pokemon.h \
+    type.h \
     utils.h \
     widget.h
 

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <QFile>
+#include <QPropertyAnimation>
 
 #define HEALTHBAR_WIDTH 81
 

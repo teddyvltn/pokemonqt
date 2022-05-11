@@ -6,6 +6,7 @@ release/mainmenu.o
 release/move.o
 release/player.o
 release/pokemon.o
+release/type.o
 release/utils.o
 release/widget.o
 release/qrc_qressource.o

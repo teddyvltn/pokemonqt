@@ -4,6 +4,7 @@
 #include <string>
 #include <QString>
 
+#include "type.h"
 #include "move.h"
 class Player;
 
@@ -22,6 +23,8 @@ class Pokemon
     int itsAttack;
     int itsDefense;
     int itsSpeed;
+
+    Type itsType;
 
     std::string itsDescription;
 
@@ -49,6 +52,7 @@ public:
     const std::string &getItsModel() const;
     const vector<Move *> &getItsMoves() const;
     Player *getItsTrainer() const;
+    Type getItsType() const;
 };
 
 #endif // POKEMON_H

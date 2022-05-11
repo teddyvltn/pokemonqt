@@ -1,0 +1,5 @@
+curtype,fire,grass,water,electric
+fire,1,2,0.5,1
+grass,0.5,1,2,1
+water,2,0.5,1,1
+electric,1,1,0.5,1

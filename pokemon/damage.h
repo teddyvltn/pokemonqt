@@ -10,6 +10,9 @@ class Damage
     Pokemon* itsVictim;
     Pokemon* itsAttacker;
 
+    Type itsVictimType;
+    Type itsAttackerType;
+
     Move* itsMove;
 
     int itsDamage;

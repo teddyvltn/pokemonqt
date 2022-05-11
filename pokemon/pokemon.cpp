@@ -5,6 +5,11 @@
 
 auto pokemons = extract_fileData("pokemon.txt");
 
+Type Pokemon::getItsType() const
+{
+    return itsType;
+}
+
 Pokemon::Pokemon(int id, Player* trainer)
 {
     auto p = pokemons[id-1];
@@ -14,7 +19,7 @@ Pokemon::Pokemon(int id, Player* trainer)
 
     this->itsTrainer = trainer;
 
-    //this->itsType = getTypeFromString(p["type"]);
+    this->itsType = stringToType(p["type"]);
 
     this->itsModel = "sprites/pokemon/back/" + p["id"] + ".png";
 

@@ -25,3 +25,8 @@ void MainMenu::battleReward()
 
 }
 
+void MainMenu::battleNoReward()
+{
+
+}
+

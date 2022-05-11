@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include "globals.h"
+#include "type.h"
 #include "widget.h"
 
 Player *Game::getFirstPlayer() const
@@ -11,6 +12,9 @@ Player *Game::getFirstPlayer() const
 Game::Game()
 {
     firstPlayer = new Player("Francis");
+
+    populateStringType();
+    populateTypeEfficiency();
 }
 
 void Game::loss(Player *playerWhoLost)
