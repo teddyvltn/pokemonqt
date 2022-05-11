@@ -22,5 +22,6 @@
         <file>sprites/pokemon/1.png</file>
         <file>sprites/pokemon/2.png</file>
         <file>sprites/pokemon/3.png</file>
+        <file>data/move.txt</file>
     </qresource>
 </RCC>

@@ -22,6 +22,13 @@ Pokemon::Pokemon(int id)
     this->itsSpeed = stoi(p["speed"]);
 
     this->itsDescription = "";
+
+    this->itsMoves.push_back(new Move(1));
+}
+
+const vector<Move *> &Pokemon::getItsMoves() const
+{
+    return itsMoves;
 }
 
 

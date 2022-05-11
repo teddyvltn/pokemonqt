@@ -27,7 +27,7 @@ public:
 
     const std::string &getItsName() const;
 
-    const Pokemon* getItsActivePokemon() const;
+    Pokemon* getItsActivePokemon() const;
 };
 
 #endif // PLAYER_H

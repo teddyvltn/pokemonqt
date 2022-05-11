@@ -1,7 +1,9 @@
+release/damage.o
 release/game.o
 release/main.o
 release/battle.o
 release/mainmenu.o
+release/move.o
 release/player.o
 release/pokemon.o
 release/utils.o

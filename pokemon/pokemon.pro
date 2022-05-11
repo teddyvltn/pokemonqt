@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     menu/battle.cpp \
     menu/mainmenu.cpp \
+    move.cpp \
     player.cpp \
     pokemon.cpp \
     utils.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     game.h \
     menu/battle.h \
     menu/mainmenu.h \
+    move.h \
     player.h \
     pokemon.h \
     utils.h \

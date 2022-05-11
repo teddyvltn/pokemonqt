@@ -3,12 +3,14 @@
 
 #include "pokemon.h"
 
+#define ODD_CRITICAL 5
+
 class Damage
 {
     Pokemon* itsVictim;
     Pokemon* itsAttacker;
 
-    //moves
+    Move* itsMove;
 
     int itsDamage;
     int itsMultiplier;
@@ -16,7 +18,11 @@ class Damage
     bool isCritical;
 
 public:
-    Damage();
+    Damage(Pokemon* itsAttacler, Move* itsMove, Pokemon* itsVictim);
+
+    void attack();
+
+    void computeDamage();
 };
 
 #endif // DAMAGE_H

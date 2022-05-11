@@ -2,6 +2,7 @@
 #define BATTLE_H
 
 #include <QWidget>
+#include <QLabel>
 #include "player.h"
 
 QT_BEGIN_NAMESPACE
@@ -18,11 +19,19 @@ public:
     void setupBattle(Player* aPlayer, Player* anotherPlayer);
     void setButtonAction(int identifier);
 
+    void resizeHealthBar(QLabel* healthBar, Pokemon* aPokemon);
+    void setMessage(QString aText);
+
+    void hideMessage();
+
 private slots:
     void on_button1_clicked();
 
 private:
     Ui::Battle* ui;
+
+    Player* you;
+    Player* opponent;
 };
 
 

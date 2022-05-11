@@ -4,6 +4,8 @@
 #include <string>
 #include <QString>
 
+#include "move.h"
+
 class Pokemon
 {
     std::string itsName;
@@ -22,10 +24,12 @@ class Pokemon
 
     std::string itsModel;
 
-    //vector<Moves*> itsMoves;
+    vector<Move*> itsMoves;
 
 public:
     Pokemon(int id);
+
+
 
     int getItsIdentifier() const;
     void setItsIdentifier(int newItsIdentifier);
@@ -40,6 +44,7 @@ public:
     int getItsDefense() const;
     int getItsSpeed() const;
     const std::string &getItsModel() const;
+    const vector<Move *> &getItsMoves() const;
 };
 
 #endif // POKEMON_H

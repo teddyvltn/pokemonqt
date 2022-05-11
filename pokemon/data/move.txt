@@ -1,0 +1,4 @@
+id,name,type,power,pp
+1,Coup de boule,grass,80,20
+2,Lance flamme,fire,40,40
+3,Fouet de liane,grass,60,15

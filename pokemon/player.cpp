@@ -8,7 +8,7 @@ const std::string &Player::getItsName() const
     return itsName;
 }
 
-const Pokemon* Player::getItsActivePokemon() const
+Pokemon* Player::getItsActivePokemon() const
 {
     return *itsActivePokemon;
 }
