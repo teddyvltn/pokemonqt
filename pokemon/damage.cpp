@@ -10,7 +10,9 @@ Damage::Damage(Pokemon* attacker, Move* move, Pokemon* victim)
     itsVictimType = victim->getItsType();
     itsAttackerType = attacker->getItsType();
 
-    int generatedNumber = QRandomGenerator::global()->generate();
+    int generatedNumber = QRandomGenerator::global()->bounded(100);
+
+    std::cout << generatedNumber << std::endl;
 
     isCritical = (generatedNumber < ODD_CRITICAL);
 
@@ -22,7 +24,21 @@ Damage::Damage(Pokemon* attacker, Move* move, Pokemon* victim)
 
 void Damage::computeDamage()
 {
-    itsDamage = itsDamage/2 * getTypeEfficiency(itsAttackerType, itsVictimType);
+    float ratioAttackDefense = (float)itsAttacker->getItsAttack() / (float)itsVictim->getItsDefense();
+    float typeMultiplicator = getTypeEfficiency(itsAttackerType, itsVictimType);
+
+    std::cout << "Base damage of " << itsMove->getItsName() << " : " << itsDamage;
+
+    itsDamage = ratioAttackDefense * itsDamage * typeMultiplicator / 10;
+    if (isCritical) {
+        itsDamage *= 2; std::cout << "CRITICAL!! ";
+    }
+
+
+    std::cout << ", Attacker Attack / Defender Defense = " << ratioAttackDefense
+              << ", Type multiplicator = " << typeMultiplicator
+              << ", New damage = " << itsDamage*10 << "/10" << std::endl;
+
 }
 
 void Damage::attack()

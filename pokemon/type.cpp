@@ -24,8 +24,6 @@ void populateTypeEfficiency()
     std::cout << "Populate: stringType!" << std::endl;
     auto type = extract_fileData("type.txt");
 
-    print_data(type);
-
     for (unsigned int i = 0; i != type.size(); i++) {
         auto data = type[i];
 
