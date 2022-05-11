@@ -29,11 +29,13 @@ public:
 
     void doAttack(Player* firstToAttack, Player* secondToAttack, bool firstTurn=true);
 
+    void endBattle(Player* winner, Player* looser);
+
 private slots:
     void on_button1_clicked();
 
 signals:
-    void battleEnded();
+    void battleEnded(Player* winner, Player* losser);
 
 private:
     Ui::Battle* ui;

@@ -17,6 +17,7 @@ public:
     void loss(Player* playerWhoLost);
     void startBattle(Battle* _battle);
 
+    Player *getFirstPlayer() const;
 };
 
 #endif // GAME_H

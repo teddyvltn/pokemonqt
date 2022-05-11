@@ -32,7 +32,11 @@ public:
 
 private slots:
     void moveToBattle();
-    void battleEnded();
+    void battleEnded(Player* winner, Player* losser);
+
+signals:
+    void battleReward();
+    void battleNoReward();
 
 private:
     Ui::Widget *ui;

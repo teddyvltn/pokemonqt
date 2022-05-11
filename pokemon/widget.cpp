@@ -29,7 +29,7 @@ Widget::Widget(QWidget *parent)
 
     //mainMenu -> battle
     connect(_mainMenu, SIGNAL(moveToBattle()), this, SLOT(moveToBattle()));
-    connect(_battle, SIGNAL(battleEnded()), this, SLOT(battleEnded()));
+    connect(_battle, SIGNAL(battleEnded(Player*,Player*)), this, SLOT(battleEnded(Player*, Player*)));
 
 }
 
@@ -50,8 +50,12 @@ void Widget::moveToBattle()
     game->startBattle(_battle);
 }
 
-void Widget::battleEnded()
+void Widget::battleEnded(Player* winner, Player* losser)
 {
-    std::cout << "a" << std::endl;
+    std::cout << winner->getItsName() << std::endl;
+    if (winner == game->getFirstPlayer()) {
+
+    }
+    delay(500);
     ui->stackedWidget->setCurrentIndex(MAIN_MENU);
 }

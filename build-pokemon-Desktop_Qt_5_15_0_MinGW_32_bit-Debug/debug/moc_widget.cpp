@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Widget_t {
-    QByteArrayData data[4];
-    char stringdata0[33];
+    QByteArrayData data[7];
+    char stringdata0[55];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,10 +35,14 @@ static const qt_meta_stringdata_Widget_t qt_meta_stringdata_Widget = {
 QT_MOC_LITERAL(0, 0, 6), // "Widget"
 QT_MOC_LITERAL(1, 7, 12), // "moveToBattle"
 QT_MOC_LITERAL(2, 20, 0), // ""
-QT_MOC_LITERAL(3, 21, 11) // "battleEnded"
+QT_MOC_LITERAL(3, 21, 11), // "battleEnded"
+QT_MOC_LITERAL(4, 33, 7), // "Player*"
+QT_MOC_LITERAL(5, 41, 6), // "winner"
+QT_MOC_LITERAL(6, 48, 6) // "losser"
 
     },
-    "Widget\0moveToBattle\0\0battleEnded"
+    "Widget\0moveToBattle\0\0battleEnded\0"
+    "Player*\0winner\0losser"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,11 +61,11 @@ static const uint qt_meta_data_Widget[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    0,   24,    2, 0x08 /* Private */,
-       3,    0,   25,    2, 0x08 /* Private */,
+       3,    2,   25,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 4, 0x80000000 | 4,    5,    6,
 
        0        // eod
 };
@@ -73,11 +77,10 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->moveToBattle(); break;
-        case 1: _t->battleEnded(); break;
+        case 1: _t->battleEnded((*reinterpret_cast< Player*(*)>(_a[1])),(*reinterpret_cast< Player*(*)>(_a[2]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject Widget::staticMetaObject = { {

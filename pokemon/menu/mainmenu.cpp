@@ -20,3 +20,8 @@ void MainMenu::on_pushButton_2_clicked()
     emit moveToBattle();
 }
 
+void MainMenu::battleReward()
+{
+
+}
+

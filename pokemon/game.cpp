@@ -3,6 +3,11 @@
 #include "globals.h"
 #include "widget.h"
 
+Player *Game::getFirstPlayer() const
+{
+    return firstPlayer;
+}
+
 Game::Game()
 {
     firstPlayer = new Player("Francis");

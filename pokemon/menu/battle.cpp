@@ -134,6 +134,23 @@ void Battle::attackTurn()
 
 }
 
+void Battle::endBattle(Player *winner, Player *looser)
+{
+    QLabel* victimSprite = Sprites[looser];
+    QLabel* victimHealthBar = HealthBar[looser];
+
+    victimSprite->setVisible(false);
+
+    QString winnerMessage = QString::fromStdString(winner->getItsName() + " has won the battle!");
+
+    setMessage(winnerMessage);
+
+    delay(2000);
+
+    emit battleEnded(winner, looser);
+}
+
+
 void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstTurn)
 {
     QLabel* victimSprite = Sprites[secondToAttack];
@@ -150,30 +167,51 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
                              move,
                              victim);
 
+    setMessage(attackMessage);
     dmg->attack();
 
+    makeBlink(victimSprite);
     resizeHealthBar(victimHealthBar, victim);
 
-    makeBlink(victimSprite);
+    delay(500);
 
-    setMessage(attackMessage);
-
-    setButtonAction(ACTION_MAIN);
-
-    delete dmg;
-
-    if (victim->isAlive() and firstTurn)
+    if (victim->isAlive() and firstTurn) {
         doAttack(secondToAttack, firstToAttack, false);
+    }
     else if ( not victim->isAlive() ) {
-        victim->getItsTrainer()->switchPokemon();
-        emit battleEnded();
-        victimSprite->setPixmap(QString::fromStdString(":/" + victim->getItsModel()));
-        victimHealthBar->setFixedWidth(HEALTHBAR_WIDTH);
+
+        QString deathMessage = QString::fromStdString(victim->getItsName() + " his KO!");
+
+        setMessage(deathMessage);
+        victimSprite->setVisible(false);
+
+        delay(1000);
+
+        if (secondToAttack->computePokemonAlive() > 0) {
+            secondToAttack->switchPokemon();
+
+            victimSprite->setPixmap(QString::fromStdString(":/" + victim->getItsModel()));
+            victimHealthBar->setFixedWidth(HEALTHBAR_WIDTH);
+
+            QString switchMessage = QString::fromStdString(secondToAttack->getItsName() + "has sent "
+                                                           + secondToAttack->getItsActivePokemon()->getItsName());
+
+            setMessage(switchMessage);
+
+            delay(1000);
+
+            victimSprite->setVisible(true);
+        }
+        else {
+            endBattle(firstToAttack, secondToAttack);
+        }
+
     }
 
     hideMessage();
 
 }
+
 
 
 void Battle::on_button1_clicked()
