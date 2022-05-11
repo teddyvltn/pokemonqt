@@ -19,7 +19,7 @@ Damage::Damage(Pokemon* attacker, Move* move, Pokemon* victim)
 
 void Damage::computeDamage()
 {
-    itsDamage = itsDamage/20;
+    itsDamage = itsDamage/2;
 }
 
 void Damage::attack()

@@ -1,6 +1,9 @@
 #include "player.h"
 #include "utils.h"
 
+#include "game.h"
+#include "globals.h"
+
 auto trainer = extract_fileData("trainer.txt");
 
 const std::string &Player::getItsName() const
@@ -40,13 +43,33 @@ void Player::generatePokemons()
             int pokemonIdentifier = stoi(t[to_string(i)]);
 
             if (pokemonIdentifier != 0)
-                itsPokemons.push_back(new Pokemon(pokemonIdentifier));
+                itsPokemons.push_back(new Pokemon(pokemonIdentifier, this));
         }
         else
-            itsPokemons.push_back(new Pokemon(2));
+            itsPokemons.push_back(new Pokemon(2, this));
     }
 
     itsActivePokemon = itsPokemons.begin();
+}
+
+void Player::switchPokemon()
+{
+    if (not (computePokemonAlive() == 0))
+        itsActivePokemon++;
+    else
+        game->loss(this);
+}
+
+int Player::computePokemonAlive()
+{
+    int nbrAlive = 0;
+
+    for (Pokemon* pokemon : itsPokemons) {
+        if (pokemon->isAlive())
+            nbrAlive++;
+    }
+
+    return nbrAlive;
 }
 
 

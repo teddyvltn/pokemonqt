@@ -13,6 +13,9 @@
 
 int CURRENT_ACTION;
 
+map<Player*, QLabel*> Sprites;
+map<Player*, QLabel*> HealthBar;
+
 Battle::Battle(QWidget* parent) : QWidget(parent), ui(new Ui::Battle)
 {
     std::cout << "Setting up Ui: Battle" << std::endl;
@@ -105,8 +108,72 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
 
     ui->boxMessage->setVisible(false);
     ui->boxText->setVisible(false);
+
+    Sprites.insert({you, ui->myPokemon});
+    Sprites.insert({opponent, ui->otherPokemon});
+
+    HealthBar.insert({you, ui->myHealthBar});
+    HealthBar.insert({opponent, ui->otherHealthBar});
 }
 
+void Battle::attackTurn()
+{
+    ui->boxMessage->setVisible(true);
+    ui->boxText->setVisible(true);
+
+    Pokemon* myPokemon = you->getItsActivePokemon();
+    Pokemon* otherPokemon = opponent->getItsActivePokemon();
+
+    if (myPokemon->getItsSpeed() >= otherPokemon->getItsSpeed()) {
+        doAttack(you, opponent);
+    }
+    else {
+        doAttack(opponent, you);
+    }
+
+
+}
+
+void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstTurn)
+{
+    QLabel* victimSprite = Sprites[secondToAttack];
+    QLabel* victimHealthBar = HealthBar[secondToAttack];
+
+    Pokemon* attacker = firstToAttack->getItsActivePokemon();
+    Pokemon* victim = secondToAttack->getItsActivePokemon();
+
+    QString attackMessage = QString::fromStdString(attacker->getItsName() + " attack " +
+                                                   victim->getItsName() + " ! ");
+
+    Move* move = attacker->getItsMoves()[0];
+    Damage* dmg = new Damage(attacker,
+                             move,
+                             victim);
+
+    dmg->attack();
+
+    resizeHealthBar(victimHealthBar, victim);
+
+    makeBlink(victimSprite);
+
+    setMessage(attackMessage);
+
+    setButtonAction(ACTION_MAIN);
+
+    delete dmg;
+
+    if (victim->isAlive() and firstTurn)
+        doAttack(secondToAttack, firstToAttack, false);
+    else if ( not victim->isAlive() ) {
+        victim->getItsTrainer()->switchPokemon();
+        emit battleEnded();
+        victimSprite->setPixmap(QString::fromStdString(":/" + victim->getItsModel()));
+        victimHealthBar->setFixedWidth(HEALTHBAR_WIDTH);
+    }
+
+    hideMessage();
+
+}
 
 
 void Battle::on_button1_clicked()
@@ -114,32 +181,8 @@ void Battle::on_button1_clicked()
     if (CURRENT_ACTION == ACTION_MAIN)
         setButtonAction(ACTION_ATTACK);
     else {
-        ui->boxMessage->setVisible(true);
-        ui->boxText->setVisible(true);
-
-        Pokemon* myPokemon = you->getItsActivePokemon();
-        Pokemon* otherPokemon = opponent->getItsActivePokemon();
-
-        QString attackMessage = QString::fromStdString(myPokemon->getItsName() + " attack " +
-                                                       otherPokemon->getItsName() + " ! ");
-
-        Move* move = myPokemon->getItsMoves()[0];
-        Damage* dmg = new Damage(myPokemon,
-                                 move,
-                                 otherPokemon);
-
-        dmg->attack();
-        resizeHealthBar(ui->otherHealthBar, otherPokemon);
-
-        makeBlink(ui->otherPokemon);
-
-        setMessage(attackMessage);
-
-        setButtonAction(ACTION_MAIN);
-
-        hideMessage();
-
-        delete dmg;
+        attackTurn();
     }
+
 }
 

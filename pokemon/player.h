@@ -24,6 +24,9 @@ public:
     Player(std::string itsName);
 
     void generatePokemons();
+    void switchPokemon();
+
+    int computePokemonAlive();
 
     const std::string &getItsName() const;
 

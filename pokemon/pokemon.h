@@ -5,11 +5,14 @@
 #include <QString>
 
 #include "move.h"
+class Player;
 
 class Pokemon
 {
     std::string itsName;
     int itsIdentifier;
+
+    Player* itsTrainer;
 
     int itsLevel;
 
@@ -27,9 +30,9 @@ class Pokemon
     vector<Move*> itsMoves;
 
 public:
-    Pokemon(int id);
+    Pokemon(int id, Player* trainer);
 
-
+    bool isAlive();
 
     int getItsIdentifier() const;
     void setItsIdentifier(int newItsIdentifier);
@@ -45,6 +48,7 @@ public:
     int getItsSpeed() const;
     const std::string &getItsModel() const;
     const vector<Move *> &getItsMoves() const;
+    Player *getItsTrainer() const;
 };
 
 #endif // POKEMON_H

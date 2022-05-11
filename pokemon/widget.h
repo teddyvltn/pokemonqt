@@ -28,8 +28,11 @@ public:
     explicit Widget(QWidget *parent = nullptr);
     ~Widget();
 
+    void backToHome();
+
 private slots:
     void moveToBattle();
+    void battleEnded();
 
 private:
     Ui::Widget *ui;

@@ -1,14 +1,18 @@
 #include "pokemon.h"
+
+#include "player.h"
 #include "utils.h"
 
 auto pokemons = extract_fileData("pokemon.txt");
 
-Pokemon::Pokemon(int id)
+Pokemon::Pokemon(int id, Player* trainer)
 {
     auto p = pokemons[id-1];
 
     this->itsIdentifier = stoi(p["id"]);
     this->itsName = p["name"];
+
+    this->itsTrainer = trainer;
 
     //this->itsType = getTypeFromString(p["type"]);
 
@@ -24,6 +28,16 @@ Pokemon::Pokemon(int id)
     this->itsDescription = "";
 
     this->itsMoves.push_back(new Move(1));
+}
+
+bool Pokemon::isAlive()
+{
+    return (itsCurrentHP != 0);
+}
+
+Player *Pokemon::getItsTrainer() const
+{
+    return itsTrainer;
 }
 
 const vector<Move *> &Pokemon::getItsMoves() const

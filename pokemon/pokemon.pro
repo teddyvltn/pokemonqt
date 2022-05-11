@@ -23,6 +23,7 @@ SOURCES += \
 HEADERS += \
     damage.h \
     game.h \
+    globals.h \
     menu/battle.h \
     menu/mainmenu.h \
     move.h \

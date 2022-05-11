@@ -24,8 +24,16 @@ public:
 
     void hideMessage();
 
+    void switchPokemon(Player* aPlayer);
+    void attackTurn();
+
+    void doAttack(Player* firstToAttack, Player* secondToAttack, bool firstTurn=true);
+
 private slots:
     void on_button1_clicked();
+
+signals:
+    void battleEnded();
 
 private:
     Ui::Battle* ui;
