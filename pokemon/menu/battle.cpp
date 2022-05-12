@@ -13,9 +13,15 @@
 #define ACTION_ATTACK 1
 
 int CURRENT_ACTION;
+int CURRENT_ATTACK;
 
 map<Player*, QLabel*> Sprites;
 map<Player*, QLabel*> HealthBar;
+
+vector<QLabel*> myBall;
+vector<QLabel*> otherBall;
+
+vector<QPushButton*> attackButton;
 
 Battle::Battle(QWidget* parent) : QWidget(parent), ui(new Ui::Battle)
 {
@@ -41,6 +47,7 @@ void makeBlink(QLabel * aSprite) {
         aSprite->setVisible(true);
         delay(100);
     }
+
 }
 
 void Battle::setMessage(QString aText) {
@@ -48,6 +55,7 @@ void Battle::setMessage(QString aText) {
     ui->boxText->setVisible(true);
 
     ui->boxText->setText(aText);
+
 }
 
 void Battle::hideMessage()
@@ -69,10 +77,35 @@ void Battle::setButtonAction(int identifier)
     else {
         CURRENT_ACTION = ACTION_ATTACK;
 
-        // getmoves etc
-        buttonSetText("Coup de boule", ui->button1);
-        ui->button2->hide();
-        ui->button3->hide();
+        auto youPokemonMoves = you->getItsActivePokemon()->getItsMoves();
+
+        for (unsigned int i = 0; i != attackButton.size(); i++) {
+            if (i < youPokemonMoves.size())
+                buttonSetText(youPokemonMoves[i]->getItsName(), attackButton[i]);
+            else
+                attackButton[i]->hide();
+        }
+    }
+}
+
+void Battle::refreshBallDisplay()
+{
+    auto youPokemons = you->getItsPokemons();
+
+    for (unsigned int i = 0; i != youPokemons.size(); i++) {
+        if (youPokemons[i]->isAlive())
+            myBall[i]->setPixmap(QString::fromStdString(":/ui/img/ballnormal.png"));
+        else
+            myBall[i]->setPixmap(QString::fromStdString(":/ui/img/ballstatus.PNG"));
+    }
+
+    auto opponentPokemons = opponent->getItsPokemons();
+
+    for (unsigned int i = 0; i != opponentPokemons.size(); i++) {
+        if (opponentPokemons[i]->isAlive())
+            otherBall[i]->setPixmap(QString::fromStdString(":/ui/img/ballnormal.png"));
+        else
+            otherBall[i]->setPixmap(QString::fromStdString(":/ui/img/ballstatus.PNG"));
     }
 }
 
@@ -115,6 +148,13 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
 
     HealthBar.insert({you, ui->myHealthBar});
     HealthBar.insert({opponent, ui->otherHealthBar});
+
+    myBall = {ui->myBall1, ui->myBall2, ui->myBall3, ui->myBall4, ui->myBall5, ui->myBall6};
+    otherBall = {ui->otherBall1, ui->otherBall2, ui->otherBall3, ui->otherBall4, ui->otherBall5, ui->otherBall6};
+
+    refreshBallDisplay();
+
+    attackButton = {ui->button1, ui->button2, ui->button3, ui->button4};
 }
 
 void Battle::attackTurn()
@@ -132,6 +172,7 @@ void Battle::attackTurn()
         doAttack(opponent, you);
     }
 
+    setButtonAction(ACTION_MAIN);
 
 }
 
@@ -163,7 +204,7 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
     QString attackMessage = QString::fromStdString(attacker->getItsName() + " attack " +
                                                    victim->getItsName() + " ! ");
 
-    Move* move = attacker->getItsMoves()[0];
+    Move* move = attacker->getItsMoves()[CURRENT_ATTACK];
     Damage* dmg = new Damage(attacker,
                              move,
                              victim);
@@ -185,6 +226,8 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
 
         setMessage(deathMessage);
         victimSprite->setVisible(false);
+
+        refreshBallDisplay();
 
         delay(1000);
 
@@ -221,7 +264,21 @@ void Battle::on_button1_clicked()
         setButtonAction(ACTION_ATTACK);
     else {
         attackTurn();
+        CURRENT_ATTACK = 0;
     }
 
 }
+
+void Battle::on_button2_clicked()
+{
+    if (CURRENT_ACTION == ACTION_MAIN) {}
+        //BAG
+        //setButtonAction(ACTION_ATTACK);
+    else {
+        attackTurn();
+        CURRENT_ATTACK = 1;
+    }
+
+}
+
 

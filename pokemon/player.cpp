@@ -16,6 +16,11 @@ Pokemon* Player::getItsActivePokemon() const
     return *itsActivePokemon;
 }
 
+const std::vector<Pokemon *> &Player::getItsPokemons() const
+{
+    return itsPokemons;
+}
+
 Player::Player(int identifier)
 {
     auto t = trainer[identifier-1];

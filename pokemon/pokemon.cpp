@@ -32,7 +32,13 @@ Pokemon::Pokemon(int id, Player* trainer)
 
     this->itsDescription = "";
 
-    this->itsMoves.push_back(new Move(1));
+    for (unsigned int i = 1; i < 5; i++) {
+
+        int move = stoi(p["move" + to_string(i)]);
+        if (move != 0)
+            this->itsMoves.push_back(new Move(move));
+    }
+
 }
 
 bool Pokemon::isAlive()

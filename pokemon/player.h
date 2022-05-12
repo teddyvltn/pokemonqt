@@ -31,6 +31,7 @@ public:
     const std::string &getItsName() const;
 
     Pokemon* getItsActivePokemon() const;
+    const std::vector<Pokemon *> &getItsPokemons() const;
 };
 
 #endif // PLAYER_H

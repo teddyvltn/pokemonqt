@@ -18,6 +18,7 @@ public:
     ~Battle();
     void setupBattle(Player* aPlayer, Player* anotherPlayer);
     void setButtonAction(int identifier);
+    void refreshBallDisplay();
 
     void resizeHealthBar(QLabel* healthBar, Pokemon* aPokemon);
     void setMessage(QString aText);
@@ -33,6 +34,8 @@ public:
 
 private slots:
     void on_button1_clicked();
+
+    void on_button2_clicked();
 
 signals:
     void battleEnded(Player* winner, Player* losser);

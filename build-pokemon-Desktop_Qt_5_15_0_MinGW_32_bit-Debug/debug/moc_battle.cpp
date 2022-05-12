@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Battle_t {
-    QByteArrayData data[7];
-    char stringdata0[61];
+    QByteArrayData data[8];
+    char stringdata0[80];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,11 +38,12 @@ QT_MOC_LITERAL(2, 19, 0), // ""
 QT_MOC_LITERAL(3, 20, 7), // "Player*"
 QT_MOC_LITERAL(4, 28, 6), // "winner"
 QT_MOC_LITERAL(5, 35, 6), // "losser"
-QT_MOC_LITERAL(6, 42, 18) // "on_button1_clicked"
+QT_MOC_LITERAL(6, 42, 18), // "on_button1_clicked"
+QT_MOC_LITERAL(7, 61, 18) // "on_button2_clicked"
 
     },
     "Battle\0battleEnded\0\0Player*\0winner\0"
-    "losser\0on_button1_clicked"
+    "losser\0on_button1_clicked\0on_button2_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -52,7 +53,7 @@ static const uint qt_meta_data_Battle[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -60,15 +61,17 @@ static const uint qt_meta_data_Battle[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   24,    2, 0x06 /* Public */,
+       1,    2,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    0,   29,    2, 0x08 /* Private */,
+       6,    0,   34,    2, 0x08 /* Private */,
+       7,    0,   35,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, 0x80000000 | 3,    4,    5,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -82,6 +85,7 @@ void Battle::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: _t->battleEnded((*reinterpret_cast< Player*(*)>(_a[1])),(*reinterpret_cast< Player*(*)>(_a[2]))); break;
         case 1: _t->on_button1_clicked(); break;
+        case 2: _t->on_button2_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -125,13 +129,13 @@ int Battle::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

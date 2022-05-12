@@ -92,7 +92,7 @@
   <widget class="QLabel" name="otherPokemon">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>300</x>
      <y>20</y>
      <width>141</width>
      <height>141</height>
@@ -256,6 +256,281 @@
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="QLabel" name="myBall1">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>160</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="myBall2">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>160</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="myBall3">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>160</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="myBall4">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>160</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="myBall5">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>160</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="myBall6">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>160</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="otherBall1">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="otherBall3">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>20</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="otherBall4">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>20</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="otherBall2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>20</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="otherBall6">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>20</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="otherBall5">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>20</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="box_2">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>-90</y>
+     <width>561</width>
+     <height>461</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="qressource.qrc">:/img/bg/Sky.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>box_2</zorder>
+  <zorder>myBox</zorder>
+  <zorder>otherBox</zorder>
+  <zorder>box</zorder>
+  <zorder>myPokemon</zorder>
+  <zorder>otherPokemon</zorder>
+  <zorder>otherName</zorder>
+  <zorder>myName</zorder>
+  <zorder>myHealthBar</zorder>
+  <zorder>otherHealthBar</zorder>
+  <zorder>button1</zorder>
+  <zorder>button2</zorder>
+  <zorder>button3</zorder>
+  <zorder>button4</zorder>
+  <zorder>boxMessage</zorder>
+  <zorder>boxText</zorder>
+  <zorder>myBall1</zorder>
+  <zorder>myBall2</zorder>
+  <zorder>myBall3</zorder>
+  <zorder>myBall4</zorder>
+  <zorder>myBall5</zorder>
+  <zorder>myBall6</zorder>
+  <zorder>otherBall1</zorder>
+  <zorder>otherBall3</zorder>
+  <zorder>otherBall4</zorder>
+  <zorder>otherBall2</zorder>
+  <zorder>otherBall6</zorder>
+  <zorder>otherBall5</zorder>
  </widget>
  <resources>
   <include location="qressource.qrc"/>

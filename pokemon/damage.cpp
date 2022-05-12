@@ -12,8 +12,6 @@ Damage::Damage(Pokemon* attacker, Move* move, Pokemon* victim)
 
     int generatedNumber = QRandomGenerator::global()->bounded(100);
 
-    std::cout << generatedNumber << std::endl;
-
     isCritical = (generatedNumber < ODD_CRITICAL);
 
     itsMove = move;

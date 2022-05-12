@@ -163,7 +163,9 @@ release/qrc_qressource.cpp: ../pokemon/qressource.qrc \
 		../pokemon/img/battleMessage.png \
 		../pokemon/img/battleFoeBoxS.png \
 		../pokemon/img/ballnormal.png \
-		../pokemon/img/battleCommand.png
+		../pokemon/img/battleCommand.png \
+		../pokemon/img/bg/Field.png \
+		../pokemon/img/bg/Sky.png
 	E:\Qt\5.15.0\mingw81_32\bin\rcc.exe -name qressource ..\pokemon\qressource.qrc -o release\qrc_qressource.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
@@ -285,7 +287,7 @@ release/moc_battle.cpp: ../pokemon/menu/battle.h \
 		../pokemon/player.h \
 		../pokemon/pokemon.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QString \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
@@ -296,6 +298,7 @@ release/moc_battle.cpp: ../pokemon/menu/battle.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qdesktopwidget.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
+		../pokemon/move.h \
 		release/moc_predefs.h \
 		E:/Qt/5.15.0/mingw81_32/bin/moc.exe
 	E:\Qt\5.15.0\mingw81_32\bin\moc.exe $(DEFINES) --include C:/Users/nnopt/OneDrive/Documents/GitHub/pokemonqt/build-pokemon-Desktop_Qt_5_15_0_MinGW_32_bit-Debug/release/moc_predefs.h -IE:/Qt/5.15.0/mingw81_32/mkspecs/win32-g++ -IC:/Users/nnopt/OneDrive/Documents/GitHub/pokemonqt/pokemon -IE:/Qt/5.15.0/mingw81_32/include -IE:/Qt/5.15.0/mingw81_32/include/QtWidgets -IE:/Qt/5.15.0/mingw81_32/include/QtGui -IE:/Qt/5.15.0/mingw81_32/include/QtANGLE -IE:/Qt/5.15.0/mingw81_32/include/QtCore -I. -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++ -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32 -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include-fixed -IE:/Qt/Tools/mingw810_32/i686-w64-mingw32/include ..\pokemon\menu\battle.h -o release\moc_battle.cpp
@@ -531,10 +534,11 @@ release/moc_widget.cpp: ../pokemon/widget.h \
 		../pokemon/player.h \
 		../pokemon/pokemon.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QString \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
+		../pokemon/move.h \
 		release/moc_predefs.h \
 		E:/Qt/5.15.0/mingw81_32/bin/moc.exe
 	E:\Qt\5.15.0\mingw81_32\bin\moc.exe $(DEFINES) --include C:/Users/nnopt/OneDrive/Documents/GitHub/pokemonqt/build-pokemon-Desktop_Qt_5_15_0_MinGW_32_bit-Debug/release/moc_predefs.h -IE:/Qt/5.15.0/mingw81_32/mkspecs/win32-g++ -IC:/Users/nnopt/OneDrive/Documents/GitHub/pokemonqt/pokemon -IE:/Qt/5.15.0/mingw81_32/include -IE:/Qt/5.15.0/mingw81_32/include/QtWidgets -IE:/Qt/5.15.0/mingw81_32/include/QtGui -IE:/Qt/5.15.0/mingw81_32/include/QtANGLE -IE:/Qt/5.15.0/mingw81_32/include/QtCore -I. -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++ -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32 -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include -IE:/Qt/Tools/mingw810_32/lib/gcc/i686-w64-mingw32/8.1.0/include-fixed -IE:/Qt/Tools/mingw810_32/i686-w64-mingw32/include ..\pokemon\widget.h -o release\moc_widget.cpp
@@ -604,7 +608,7 @@ release/damage.o: ../pokemon/damage.cpp ../pokemon/damage.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringalgorithms.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringview.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringbuilder.h \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
@@ -686,6 +690,7 @@ release/damage.o: ../pokemon/damage.cpp ../pokemon/damage.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qtouchdevice.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
+		../pokemon/move.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QRandomGenerator \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qrandom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\damage.o ..\pokemon\damage.cpp
@@ -725,7 +730,7 @@ release/game.o: ../pokemon/game.cpp ../pokemon/game.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringalgorithms.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringview.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringbuilder.h \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
@@ -807,13 +812,13 @@ release/game.o: ../pokemon/game.cpp ../pokemon/game.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qtouchdevice.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
+		../pokemon/move.h \
 		../pokemon/menu/battle.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QWidget \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QLabel \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qlabel.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qframe.h \
 		../pokemon/globals.h \
-		../pokemon/type.h \
 		../pokemon/widget.h \
 		ui_widget.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QVariant \
@@ -945,10 +950,11 @@ release/main.o: ../pokemon/main.cpp ../pokemon/widget.h \
 		../pokemon/player.h \
 		../pokemon/pokemon.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QString \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
-		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
+		../pokemon/move.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\pokemon\main.cpp
 
 release/battle.o: ../pokemon/menu/battle.cpp ../pokemon/menu/battle.h \
@@ -1061,7 +1067,7 @@ release/battle.o: ../pokemon/menu/battle.cpp ../pokemon/menu/battle.h \
 		../pokemon/player.h \
 		../pokemon/pokemon.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QString \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
@@ -1072,6 +1078,7 @@ release/battle.o: ../pokemon/menu/battle.cpp ../pokemon/menu/battle.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qdesktopwidget.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
+		../pokemon/move.h \
 		ui_battle.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QVariant \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QPushButton \
@@ -1355,7 +1362,7 @@ release/player.o: ../pokemon/player.cpp ../pokemon/player.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringalgorithms.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringview.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringbuilder.h \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
@@ -1437,6 +1444,7 @@ release/player.o: ../pokemon/player.cpp ../pokemon/player.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qtouchdevice.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
+		../pokemon/move.h \
 		../pokemon/game.h \
 		../pokemon/menu/battle.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QWidget \
@@ -1479,7 +1487,7 @@ release/pokemon.o: ../pokemon/pokemon.cpp ../pokemon/pokemon.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringalgorithms.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringview.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qstringbuilder.h \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
@@ -1561,6 +1569,7 @@ release/pokemon.o: ../pokemon/pokemon.cpp ../pokemon/pokemon.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qtouchdevice.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
+		../pokemon/move.h \
 		../pokemon/player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\pokemon.o ..\pokemon\pokemon.cpp
 
@@ -1918,10 +1927,11 @@ release/widget.o: ../pokemon/widget.cpp ../pokemon/widget.h \
 		../pokemon/player.h \
 		../pokemon/pokemon.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QString \
-		../pokemon/move.h \
+		../pokemon/type.h \
 		../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
+		../pokemon/move.h \
 		../pokemon/game.h \
 		../pokemon/globals.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\widget.o ..\pokemon\widget.cpp
