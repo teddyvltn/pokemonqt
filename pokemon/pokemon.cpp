@@ -5,7 +5,12 @@
 
 auto pokemons = extract_fileData("pokemon.txt");
 
-Type Pokemon::getItsType() const
+const std::string &Pokemon::getItsBackModel() const
+{
+    return itsBackModel;
+}
+
+const string &Pokemon::getItsType() const
 {
     return itsType;
 }
@@ -19,9 +24,10 @@ Pokemon::Pokemon(int id, Player* trainer)
 
     this->itsTrainer = trainer;
 
-    this->itsType = stringToType(p["type"]);
+    this->itsType = p["type"];
 
-    this->itsModel = "sprites/pokemon/back/" + p["id"] + ".png";
+    this->itsModel = "sprites/pokemon/" + p["id"] + ".png";
+    this->itsBackModel = "sprites/pokemon/back/" + p["id"] + ".png";
 
     this->itsMaxHP = stoi(p["hp"]);
     this->itsCurrentHP = this->itsMaxHP;

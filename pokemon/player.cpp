@@ -41,7 +41,7 @@ Player::Player(std::string name)
 
 void Player::generatePokemons()
 {
-    for (int i = 1; i < 6; i++) {
+    for (int i = 1; i < 7; i++) {
         if (isAi) {
             int identifier = itsIdentifier;
             auto t = trainer[identifier-1];
@@ -51,7 +51,7 @@ void Player::generatePokemons()
                 itsPokemons.push_back(new Pokemon(pokemonIdentifier, this));
         }
         else
-            itsPokemons.push_back(new Pokemon(2, this));
+            itsPokemons.push_back(new Pokemon(i, this));
     }
 
     itsActivePokemon = itsPokemons.begin();

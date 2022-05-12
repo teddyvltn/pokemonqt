@@ -9,6 +9,8 @@
 
 using namespace std;
 
+class Player;
+
 #ifndef UTILS_H
 #define UTILS_H
 
@@ -29,6 +31,8 @@ vector<string> parseLine(string file);
 // 1,Bulbasaur,60,60,60,60
 // ...
 const vector<map<string, string>> extract_fileData(string fileName);
+
+void save_data(Player* aPlayer);
 
 // ** print_data **
 void print_data(vector<map<string, string>> aData);

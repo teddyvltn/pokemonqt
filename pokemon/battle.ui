@@ -16,9 +16,9 @@
   <widget class="QLabel" name="myBox">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>280</x>
      <y>180</y>
-     <width>181</width>
+     <width>211</width>
      <height>71</height>
     </rect>
    </property>
@@ -37,7 +37,7 @@
     <rect>
      <x>30</x>
      <y>40</y>
-     <width>181</width>
+     <width>211</width>
      <height>51</height>
     </rect>
    </property>
@@ -73,10 +73,10 @@
   <widget class="QLabel" name="myPokemon">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>130</y>
-     <width>141</width>
-     <height>141</height>
+     <x>50</x>
+     <y>110</y>
+     <width>181</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="text">
@@ -93,9 +93,9 @@
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>20</y>
-     <width>141</width>
-     <height>141</height>
+     <y>10</y>
+     <width>161</width>
+     <height>161</height>
     </rect>
    </property>
    <property name="text">
@@ -111,8 +111,8 @@
   <widget class="QLabel" name="otherName">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>48</y>
+     <x>80</x>
+     <y>47</y>
      <width>131</width>
      <height>20</height>
     </rect>
@@ -162,9 +162,9 @@
   <widget class="QLabel" name="myHealthBar">
    <property name="geometry">
     <rect>
-     <x>395</x>
+     <x>380</x>
      <y>212</y>
-     <width>81</width>
+     <width>94</width>
      <height>7</height>
     </rect>
    </property>
@@ -181,9 +181,9 @@
   <widget class="QLabel" name="otherHealthBar">
    <property name="geometry">
     <rect>
-     <x>104</x>
+     <x>115</x>
      <y>72</y>
-     <width>81</width>
+     <width>94</width>
      <height>7</height>
     </rect>
    </property>
@@ -484,7 +484,7 @@
   <widget class="QLabel" name="myBall1">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>360</x>
      <y>160</y>
      <width>16</width>
      <height>16</height>
@@ -494,7 +494,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -503,7 +503,7 @@
   <widget class="QLabel" name="myBall2">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>380</x>
      <y>160</y>
      <width>16</width>
      <height>16</height>
@@ -513,7 +513,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -522,7 +522,7 @@
   <widget class="QLabel" name="myBall3">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>400</x>
      <y>160</y>
      <width>16</width>
      <height>16</height>
@@ -532,7 +532,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -541,7 +541,7 @@
   <widget class="QLabel" name="myBall4">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>420</x>
      <y>160</y>
      <width>16</width>
      <height>16</height>
@@ -551,7 +551,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -560,7 +560,7 @@
   <widget class="QLabel" name="myBall5">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>440</x>
      <y>160</y>
      <width>16</width>
      <height>16</height>
@@ -570,7 +570,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -579,7 +579,7 @@
   <widget class="QLabel" name="myBall6">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>460</x>
      <y>160</y>
      <width>16</width>
      <height>16</height>
@@ -589,7 +589,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -608,7 +608,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -627,7 +627,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -646,7 +646,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -665,7 +665,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -684,7 +684,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -703,7 +703,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="qressource.qrc">:/ui/img/ballstatus.PNG</pixmap>
+    <pixmap resource="qressource.qrc">:/img/ballempty.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

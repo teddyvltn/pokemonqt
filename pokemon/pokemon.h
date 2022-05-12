@@ -24,11 +24,12 @@ class Pokemon
     int itsDefense;
     int itsSpeed;
 
-    Type itsType;
+    string itsType;
 
     std::string itsDescription;
 
     std::string itsModel;
+    std::string itsBackModel;
 
     vector<Move*> itsMoves;
 
@@ -52,7 +53,8 @@ public:
     const std::string &getItsModel() const;
     const vector<Move *> &getItsMoves() const;
     Player *getItsTrainer() const;
-    Type getItsType() const;
+    const std::string &getItsBackModel() const;
+    const string &getItsType() const;
 };
 
 #endif // POKEMON_H

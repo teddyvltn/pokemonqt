@@ -2,6 +2,7 @@
 #define MOVE_H
 
 #include "utils.h"
+#include "type.h"
 
 class Move
 {
@@ -13,12 +14,15 @@ class Move
     int itsPPMax;
     int itsPP;
 
+    string itsType;
     //sound
 
 public:
     Move(int itsIdentifier);
     int getItsDamage() const;
     const string &getItsName() const;
+
+    const string &getItsType() const;
 };
 
 #endif // MOVE_H

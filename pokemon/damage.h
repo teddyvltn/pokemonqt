@@ -26,6 +26,10 @@ public:
     void attack();
 
     void computeDamage();
+    bool getIsCritical() const;
+    int getItsMultiplier() const;
+
+    string descDamage();
 };
 
 #endif // DAMAGE_H

@@ -1,6 +1,9 @@
 #include "utils.h"
 #include "QFile"
 #include "QTextStream"
+#include <QDir>
+
+#include "player.h"
 
 void delay(int msec)
 {
@@ -84,4 +87,37 @@ void print_data(vector<map<string, string> > aData)
     }
 }
 
+void save_data(Player *aPlayer)
+{
+    string playerName = aPlayer->getItsName();
 
+    cout << "Saving data for " << playerName << endl;
+
+    QDir curDir(QDir::currentPath());
+
+    string folderName = curDir.canonicalPath().toStdString() + "/";
+    string fileName = "save.txt";
+
+    QDir folder(QString::fromStdString(folderName));
+
+    if (!folder.exists()) {
+        QDir().mkdir(QString::fromStdString(folderName));
+    }
+    else {
+        //cout << "Folder already exists" << endl;
+    }
+
+    QFile outputFile(QString::fromStdString(folderName + fileName));
+
+    if (!outputFile.open(QIODevice::WriteOnly | QIODevice::Append)) {
+        cout << "Unable to open the file named: " << folderName + fileName << endl;
+    }
+    else {
+        QTextStream outstream(&outputFile);
+
+        outstream << QString::fromStdString(playerName) << Qt::endl;
+
+    }
+
+    outputFile.close();
+}

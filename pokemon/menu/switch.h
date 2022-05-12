@@ -32,6 +32,8 @@ private slots:
 
     void on_button6_clicked();
 
+    void on_button7_clicked();
+
 signals:
     void switchIndex(int index);
 

@@ -38,6 +38,8 @@ Widget::Widget(QWidget *parent)
 
     connect(_switch, SIGNAL(refresh(bool)), _battle, SLOT(refresh(bool)));
 
+    save_data(game->getFirstPlayer());
+
 }
 
 Widget::~Widget()

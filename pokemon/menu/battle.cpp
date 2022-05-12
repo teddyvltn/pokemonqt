@@ -10,8 +10,9 @@
 #include <iostream>
 #include <QFile>
 #include <QPropertyAnimation>
+#include <QRandomGenerator>
 
-#define HEALTHBAR_WIDTH 81
+#define HEALTHBAR_WIDTH 94
 
 #define ACTION_MAIN 0
 #define ACTION_ATTACK 1
@@ -21,6 +22,7 @@ int CURRENT_ATTACK;
 
 map<Player*, QLabel*> Sprites = {};
 map<Player*, QLabel*> HealthBar = {};
+map<Player*, QLabel*> Name = {};
 
 vector<QLabel*> myBall = {};
 vector<QLabel*> otherBall = {};
@@ -74,8 +76,8 @@ void Battle::setButtonAction(int identifier)
         CURRENT_ACTION = identifier;
 
         buttonSetText("Attack", ui->button1);
-        buttonSetText("Bag", ui->button2);
-        buttonSetText("Switch", ui->button3);
+        buttonSetText("Pokemon", ui->button2);
+        ui->button3->hide();
         ui->button4->hide();
     }
     else {
@@ -133,7 +135,7 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
     ui->otherPokemon->setVisible(true);
     ui->myPokemon->setVisible(true);
 
-    QString pathMyModel = QString::fromStdString(":/" + myPokemon->getItsModel());
+    QString pathMyModel = QString::fromStdString(":/" + myPokemon->getItsBackModel());
     ui->myPokemon->setPixmap(pathMyModel);
 
     QString pathOtherModel = QString::fromStdString(":/" + otherPokemon->getItsModel());
@@ -155,6 +157,9 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
 
     HealthBar.insert({you, ui->myHealthBar});
     HealthBar.insert({opponent, ui->otherHealthBar});
+
+    Name.insert({you, ui->myName});
+    Name.insert({opponent, ui->otherName});
 
     myBall = {ui->myBall1, ui->myBall2, ui->myBall3, ui->myBall4, ui->myBall5, ui->myBall6};
     otherBall = {ui->otherBall1, ui->otherBall2, ui->otherBall3, ui->otherBall4, ui->otherBall5, ui->otherBall6};
@@ -186,7 +191,6 @@ void Battle::attackTurn()
 void Battle::endBattle(Player *winner, Player *looser)
 {
     QLabel* victimSprite = Sprites[looser];
-    QLabel* victimHealthBar = HealthBar[looser];
 
     victimSprite->setVisible(false);
 
@@ -208,14 +212,17 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
     Pokemon* attacker = firstToAttack->getItsActivePokemon();
     Pokemon* victim = secondToAttack->getItsActivePokemon();
 
-    QString attackMessage = QString::fromStdString(attacker->getItsName() + " attack " +
-                                                   victim->getItsName() + " ! ");
+    if ( not (game->getFirstPlayer() == firstToAttack))
+        CURRENT_ATTACK = QRandomGenerator::global()->bounded(attacker->getItsMoves().size());
 
     Move* move = attacker->getItsMoves()[CURRENT_ATTACK];
+
     Damage* dmg = new Damage(attacker,
                              move,
                              victim);
 
+    QString attackMessage = QString::fromStdString(attacker->getItsName() + " attack " +
+                                                   victim->getItsName() + " with " + move->getItsName() + "!");
     setMessage(attackMessage);
     dmg->attack();
 
@@ -223,6 +230,13 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
     resizeHealthBar(victimHealthBar, victim);
 
     delay(500);
+
+    QString descMessage = QString::fromStdString(dmg->descDamage());
+
+    if (descMessage != "") {
+        setMessage(descMessage);
+        delay(1000);
+    }
 
     if (victim->isAlive() and firstTurn) {
         doAttack(secondToAttack, firstToAttack, false);
@@ -240,12 +254,16 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
 
         if (secondToAttack->computePokemonAlive() > 0) {
 
-            if (secondToAttack == game->getFirstPlayer())
+            if (secondToAttack == game->getFirstPlayer()) {
                 emit switchMenu(false);
-            else
+                victimSprite->setPixmap(QString::fromStdString(":/" + secondToAttack->getItsActivePokemon()->getItsBackModel()));
+            }
+            else {
                 secondToAttack->switchPokemon();
+                victimSprite->setPixmap(QString::fromStdString(":/" + secondToAttack->getItsActivePokemon()->getItsModel()));
+                Name[secondToAttack]->setText(QString::fromStdString(secondToAttack->getItsActivePokemon()->getItsName()));
+            }
 
-            victimSprite->setPixmap(QString::fromStdString(":/" + secondToAttack->getItsActivePokemon()->getItsModel()));
             resizeHealthBar(victimHealthBar, secondToAttack->getItsActivePokemon());
 
             QString switchMessage = QString::fromStdString(secondToAttack->getItsName() + "has sent "
@@ -256,6 +274,7 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
             delay(1000);
 
             victimSprite->setVisible(true);
+
         }
         else {
             endBattle(firstToAttack, secondToAttack);
@@ -292,6 +311,18 @@ void Battle::on_button2_clicked()
 
 }
 
+void Battle::on_button3_clicked()
+{
+    CURRENT_ATTACK = 2;
+    attackTurn();
+}
+
+void Battle::on_button4_clicked()
+{
+    CURRENT_ATTACK = 3;
+    attackTurn();
+}
+
 void Battle::refresh(bool forcedSwitch)
 {
     std::cout << "Refreshing after switch" << std::endl;
@@ -300,8 +331,19 @@ void Battle::refresh(bool forcedSwitch)
 
     ui->myPokemon->setVisible(false);
 
-    ui->myPokemon->setPixmap(QString::fromStdString(":/" + myPokemon->getItsModel()));
+    ui->myPokemon->setPixmap(QString::fromStdString(":/" + myPokemon->getItsBackModel()));
+
+    string pokemonName = myPokemon->getItsName();
+    for (auto & c: pokemonName) c = toupper(c);
+
+    Name[you]->setText(QString::fromStdString(pokemonName));
+
     resizeHealthBar(ui->myHealthBar, myPokemon);
+
+    QString switchMessage = QString::fromStdString(you->getItsName() + "has sent "
+                                                 + myPokemon->getItsName());
+
+    setMessage(switchMessage);
 
     delay(1000);
 
@@ -309,9 +351,14 @@ void Battle::refresh(bool forcedSwitch)
 
     delay(500);
 
+    hideMessage();
+
     if (not forcedSwitch)
         doAttack(opponent, you, false);
 
 }
+
+
+
 
 

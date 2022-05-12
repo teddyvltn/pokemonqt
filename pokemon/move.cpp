@@ -12,6 +12,12 @@ const string &Move::getItsName() const
     return itsName;
 }
 
+
+const string &Move::getItsType() const
+{
+    return itsType;
+}
+
 Move::Move(int identifier)
 {
     auto m = movesList[identifier - 1];
@@ -20,6 +26,8 @@ Move::Move(int identifier)
     itsIdentifier = identifier - 1;
 
     itsDamage = stoi(m["power"]);
+
+    itsType = m["type"];
 
     itsPPMax = stoi(m["pp"]);
     itsPP = itsPPMax;

@@ -39,6 +39,10 @@ private slots:
 
     void refresh(bool forcedSwitch=false);
 
+    void on_button3_clicked();
+
+    void on_button4_clicked();
+
 signals:
     void battleEnded(Player* winner, Player* losser);
     void switchMenu(bool activateCancel=true);

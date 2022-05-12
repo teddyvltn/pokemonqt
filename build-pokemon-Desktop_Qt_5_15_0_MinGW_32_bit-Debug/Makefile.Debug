@@ -151,10 +151,31 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_qressource.cpp
 debug/qrc_qressource.cpp: ../pokemon/qressource.qrc \
 		E:/Qt/5.15.0/mingw81_32/bin/rcc.exe \
+		../pokemon/sprites/pokemon/2.png \
+		../pokemon/sprites/pokemon/6.png \
+		../pokemon/sprites/pokemon/10.png \
+		../pokemon/sprites/pokemon/1.png \
+		../pokemon/sprites/pokemon/5.png \
+		../pokemon/sprites/pokemon/9.png \
+		../pokemon/sprites/pokemon/4.png \
+		../pokemon/sprites/pokemon/8.png \
+		../pokemon/sprites/pokemon/3.png \
+		../pokemon/sprites/pokemon/7.png \
+		../pokemon/sprites/pokemon/11.png \
 		../pokemon/sprites/pokemon/back/2.png \
+		../pokemon/sprites/pokemon/back/6.png \
+		../pokemon/sprites/pokemon/back/10.png \
 		../pokemon/sprites/pokemon/back/1.png \
+		../pokemon/sprites/pokemon/back/5.png \
+		../pokemon/sprites/pokemon/back/9.png \
+		../pokemon/sprites/pokemon/back/4.png \
+		../pokemon/sprites/pokemon/back/8.png \
+		../pokemon/sprites/pokemon/back/3.png \
+		../pokemon/sprites/pokemon/back/7.png \
+		../pokemon/sprites/pokemon/back/11.png \
 		../pokemon/data/pokemon.txt \
 		../pokemon/data/trainer.txt \
+		../pokemon/data/save.txt \
 		../pokemon/data/move.txt \
 		../pokemon/data/type.txt \
 		../pokemon/img/battlePlayerBoxD.png \
@@ -170,13 +191,17 @@ debug/qrc_qressource.cpp: ../pokemon/qressource.qrc \
 		../pokemon/img/battleFoeBoxS.png \
 		../pokemon/img/ballnormal.png \
 		../pokemon/img/battleCommand.png \
+		../pokemon/img/ballempty.png \
 		../pokemon/img/bg/Field.png \
 		../pokemon/img/bg/Sky.png \
+		../pokemon/img/switch/partyPanelRoundSelFnt.png \
 		../pokemon/img/switch/partyPanelRect.png \
+		../pokemon/img/switch/partyPanelRoundSwap.png \
 		../pokemon/img/switch/partybg.png \
 		../pokemon/img/switch/partyHP.png \
 		../pokemon/img/switch/partyPanelRound.png \
 		../pokemon/img/switch/partyCancel.png \
+		../pokemon/img/switch/partyBall.PNG \
 		../pokemon/fonts/pokemon_pixel_font.ttf
 	E:\Qt\5.15.0\mingw81_32\bin\rcc.exe -name qressource ..\pokemon\qressource.qrc -o debug\qrc_qressource.cpp
 
@@ -1213,6 +1238,14 @@ debug/battle.o: ../pokemon/menu/battle.cpp ../pokemon/menu/battle.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qabstractbutton.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qicon.h \
 		../pokemon/damage.h \
+		../pokemon/game.h \
+		../pokemon/globals.h \
+		../pokemon/widget.h \
+		ui_widget.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QStackedWidget \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qstackedwidget.h \
+		../pokemon/menu/mainmenu.h \
+		../pokemon/menu/switch.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QFile \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QPropertyAnimation \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qpropertyanimation.h \
@@ -1444,7 +1477,38 @@ debug/switch.o: ../pokemon/menu/switch.cpp ../pokemon/menu/switch.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/qfiledevice.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qvector2d.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qtouchdevice.h \
-		ui_switch.h
+		ui_switch.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/QVariant \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QApplication \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qapplication.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/qcoreapplication.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/qeventloop.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qdesktopwidget.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QLabel \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qlabel.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qframe.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QPushButton \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qpushbutton.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qabstractbutton.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtGui/qicon.h \
+		../pokemon/game.h \
+		../pokemon/player.h \
+		../pokemon/pokemon.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/QString \
+		../pokemon/type.h \
+		../pokemon/utils.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTime \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdatetime.h \
+		../pokemon/move.h \
+		../pokemon/menu/battle.h \
+		../pokemon/globals.h \
+		../pokemon/widget.h \
+		ui_widget.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/QStackedWidget \
+		E:/Qt/5.15.0/mingw81_32/include/QtWidgets/qstackedwidget.h \
+		../pokemon/menu/mainmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\switch.o ..\pokemon\menu\switch.cpp
 
 debug/move.o: ../pokemon/move.cpp ../pokemon/move.h \
@@ -2035,7 +2099,15 @@ debug/utils.o: ../pokemon/utils.cpp ../pokemon/utils.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qguiapplication.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtGui/qinputmethod.h \
 		E:/Qt/5.15.0/mingw81_32/include/QtCore/QFile \
-		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTextStream
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/QTextStream \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/QDir \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/qdir.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/qfileinfo.h \
+		../pokemon/player.h \
+		../pokemon/pokemon.h \
+		E:/Qt/5.15.0/mingw81_32/include/QtCore/QString \
+		../pokemon/type.h \
+		../pokemon/move.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\utils.o ..\pokemon\utils.cpp
 
 debug/widget.o: ../pokemon/widget.cpp ../pokemon/widget.h \

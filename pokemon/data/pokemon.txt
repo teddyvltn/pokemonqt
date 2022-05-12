@@ -1,3 +1,7 @@
 id,name,type,hp,attack,defense,speed,move1,move2,move3,move4
-1,Bulbasaur,grass,60,500,65,60,1,2,1,0
-2,Charmander,fire,80,85,108,60,1,2,0,0
+1,Bulbasaur,grass,60,50,65,60,1,2,1,0
+2,Ivysaur,grass,70,60,65,60,1,2,1,0
+3,Venusaur,grass,90,60,65,60,1,2,1,0
+4,Charmander,fire,80,85,108,60,1,2,0,0
+5,Charméleon,fire,80,85,108,60,1,2,0,0
+6,Charizard,fire,80,85,108,60,1,2,0,0
