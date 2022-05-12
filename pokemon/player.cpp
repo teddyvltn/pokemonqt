@@ -65,6 +65,11 @@ void Player::switchPokemon()
         game->loss(this);
 }
 
+void Player::switchPokemonIndex(int index)
+{
+    itsActivePokemon = itsPokemons.begin() + index;
+}
+
 int Player::computePokemonAlive()
 {
     int nbrAlive = 0;

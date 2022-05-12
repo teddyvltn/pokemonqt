@@ -26,6 +26,8 @@ public:
     void generatePokemons();
     void switchPokemon();
 
+    void switchPokemonIndex(int index);
+
     int computePokemonAlive();
 
     const std::string &getItsName() const;

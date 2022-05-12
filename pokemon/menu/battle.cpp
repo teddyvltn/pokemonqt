@@ -3,6 +3,10 @@
 
 #include "damage.h"
 
+#include "game.h"
+#include "globals.h"
+#include "widget.h"
+
 #include <iostream>
 #include <QFile>
 #include <QPropertyAnimation>
@@ -15,13 +19,13 @@
 int CURRENT_ACTION;
 int CURRENT_ATTACK;
 
-map<Player*, QLabel*> Sprites;
-map<Player*, QLabel*> HealthBar;
+map<Player*, QLabel*> Sprites = {};
+map<Player*, QLabel*> HealthBar = {};
 
-vector<QLabel*> myBall;
-vector<QLabel*> otherBall;
+vector<QLabel*> myBall = {};
+vector<QLabel*> otherBall = {};
 
-vector<QPushButton*> attackButton;
+vector<QPushButton*> attackButton = {};
 
 Battle::Battle(QWidget* parent) : QWidget(parent), ui(new Ui::Battle)
 {
@@ -126,6 +130,9 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
 
     CURRENT_ACTION = 0;
 
+    ui->otherPokemon->setVisible(true);
+    ui->myPokemon->setVisible(true);
+
     QString pathMyModel = QString::fromStdString(":/" + myPokemon->getItsModel());
     ui->myPokemon->setPixmap(pathMyModel);
 
@@ -135,7 +142,7 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
     ui->myName->setText(QString::fromStdString(myPokemon->getItsName()));
     ui->otherName->setText(QString::fromStdString(otherPokemon->getItsName()));
 
-    ui->myHealthBar->setFixedWidth(HEALTHBAR_WIDTH);
+    resizeHealthBar(ui->myHealthBar, myPokemon);
     ui->otherHealthBar->setFixedWidth(HEALTHBAR_WIDTH);
 
     setButtonAction(ACTION_MAIN);
@@ -232,10 +239,14 @@ void Battle::doAttack(Player *firstToAttack, Player *secondToAttack, bool firstT
         delay(1000);
 
         if (secondToAttack->computePokemonAlive() > 0) {
-            secondToAttack->switchPokemon();
 
-            victimSprite->setPixmap(QString::fromStdString(":/" + victim->getItsModel()));
-            victimHealthBar->setFixedWidth(HEALTHBAR_WIDTH);
+            if (secondToAttack == game->getFirstPlayer())
+                emit switchMenu(false);
+            else
+                secondToAttack->switchPokemon();
+
+            victimSprite->setPixmap(QString::fromStdString(":/" + secondToAttack->getItsActivePokemon()->getItsModel()));
+            resizeHealthBar(victimHealthBar, secondToAttack->getItsActivePokemon());
 
             QString switchMessage = QString::fromStdString(secondToAttack->getItsName() + "has sent "
                                                            + secondToAttack->getItsActivePokemon()->getItsName());
@@ -263,21 +274,43 @@ void Battle::on_button1_clicked()
     if (CURRENT_ACTION == ACTION_MAIN)
         setButtonAction(ACTION_ATTACK);
     else {
-        attackTurn();
         CURRENT_ATTACK = 0;
+        attackTurn();
     }
 
 }
 
 void Battle::on_button2_clicked()
 {
-    if (CURRENT_ACTION == ACTION_MAIN) {}
-        //BAG
-        //setButtonAction(ACTION_ATTACK);
-    else {
-        attackTurn();
-        CURRENT_ATTACK = 1;
+    if (CURRENT_ACTION == ACTION_MAIN) {
+        emit switchMenu();
     }
+    else {
+        CURRENT_ATTACK = 1;
+        attackTurn();
+    }
+
+}
+
+void Battle::refresh(bool forcedSwitch)
+{
+    std::cout << "Refreshing after switch" << std::endl;
+
+    Pokemon* myPokemon = you->getItsActivePokemon();
+
+    ui->myPokemon->setVisible(false);
+
+    ui->myPokemon->setPixmap(QString::fromStdString(":/" + myPokemon->getItsModel()));
+    resizeHealthBar(ui->myHealthBar, myPokemon);
+
+    delay(1000);
+
+    ui->myPokemon->setVisible(true);
+
+    delay(500);
+
+    if (not forcedSwitch)
+        doAttack(opponent, you, false);
 
 }
 

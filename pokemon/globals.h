@@ -2,9 +2,7 @@
 #define GLOBALS_H
 
 class Game;
-class Widget;
 
-static Game* game;
-static Widget* widget;
+extern Game* game;
 
 #endif // GLOBALS_H

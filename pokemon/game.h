@@ -14,6 +14,8 @@ private:
 public:
     Game();
 
+    void initialize();
+
     void loss(Player* playerWhoLost);
     void startBattle(Battle* _battle);
 

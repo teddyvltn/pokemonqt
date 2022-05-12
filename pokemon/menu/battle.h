@@ -37,8 +37,11 @@ private slots:
 
     void on_button2_clicked();
 
+    void refresh(bool forcedSwitch=false);
+
 signals:
     void battleEnded(Player* winner, Player* losser);
+    void switchMenu(bool activateCancel=true);
 
 private:
     Ui::Battle* ui;

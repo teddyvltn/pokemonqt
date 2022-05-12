@@ -3,6 +3,7 @@ release/game.o
 release/main.o
 release/battle.o
 release/mainmenu.o
+release/switch.o
 release/move.o
 release/player.o
 release/pokemon.o
@@ -12,4 +13,5 @@ release/widget.o
 release/qrc_qressource.o
 release/moc_battle.o
 release/moc_mainmenu.o
+release/moc_switch.o
 release/moc_widget.o

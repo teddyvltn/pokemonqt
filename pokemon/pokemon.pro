@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     menu/battle.cpp \
     menu/mainmenu.cpp \
+    menu/switch.cpp \
     move.cpp \
     player.cpp \
     pokemon.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     globals.h \
     menu/battle.h \
     menu/mainmenu.h \
+    menu/switch.h \
     move.h \
     player.h \
     pokemon.h \
@@ -37,6 +39,7 @@ HEADERS += \
 FORMS += \
     battle.ui \
     mainmenu.ui \
+    switch.ui \
     widget.ui
 
 # Default rules for deployment.

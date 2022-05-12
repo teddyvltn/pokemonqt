@@ -23,5 +23,11 @@
         <file>data/type.txt</file>
         <file>img/bg/Field.png</file>
         <file>img/bg/Sky.png</file>
+        <file>fonts/pokemon_pixel_font.ttf</file>
+        <file>img/switch/partybg.png</file>
+        <file>img/switch/partyHP.png</file>
+        <file>img/switch/partyPanelRect.png</file>
+        <file>img/switch/partyPanelRound.png</file>
+        <file>img/switch/partyCancel.png</file>
     </qresource>
 </RCC>
