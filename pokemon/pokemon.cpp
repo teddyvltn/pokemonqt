@@ -1,9 +1,12 @@
 #include "pokemon.h"
 
+#include "globals.h"
+
 #include "player.h"
 #include "utils.h"
 
 auto pokemons = extract_fileData("pokemon.txt");
+int NBR_POKEMON = pokemons.size();
 
 const std::string &Pokemon::getItsBackModel() const
 {

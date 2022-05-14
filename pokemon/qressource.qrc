@@ -30,7 +30,6 @@
         <file>img/switch/partyPanelRound.png</file>
         <file>img/switch/partyCancel.png</file>
         <file>img/ballempty.png</file>
-        <file>data/save.txt</file>
         <file>img/switch/partyBall.PNG</file>
         <file>img/switch/partyPanelRoundSwap.png</file>
         <file>img/switch/partyPanelRoundSelFnt.png</file>
@@ -54,5 +53,31 @@
         <file>sprites/pokemon/back/9.png</file>
         <file>sprites/pokemon/back/10.png</file>
         <file>sprites/pokemon/back/11.png</file>
+        <file>img/textbox.png</file>
+        <file>img/boxpartytab.PNG</file>
+        <file>sprites/pokemon/12.png</file>
+        <file>sprites/pokemon/13.png</file>
+        <file>sprites/pokemon/14.png</file>
+        <file>sprites/pokemon/15.png</file>
+        <file>sprites/pokemon/16.png</file>
+        <file>sprites/pokemon/17.png</file>
+        <file>sprites/pokemon/18.png</file>
+        <file>sprites/pokemon/19.png</file>
+        <file>sprites/pokemon/20.png</file>
+        <file>sprites/pokemon/21.png</file>
+        <file>sprites/pokemon/22.png</file>
+        <file>sprites/pokemon/23.png</file>
+        <file>sprites/pokemon/back/12.png</file>
+        <file>sprites/pokemon/back/13.png</file>
+        <file>sprites/pokemon/back/14.png</file>
+        <file>sprites/pokemon/back/15.png</file>
+        <file>sprites/pokemon/back/16.png</file>
+        <file>sprites/pokemon/back/17.png</file>
+        <file>sprites/pokemon/back/18.png</file>
+        <file>sprites/pokemon/back/19.png</file>
+        <file>sprites/pokemon/back/20.png</file>
+        <file>sprites/pokemon/back/21.png</file>
+        <file>sprites/pokemon/back/22.png</file>
+        <file>sprites/pokemon/back/23.png</file>
     </qresource>
 </RCC>

@@ -4,6 +4,8 @@
 #include "game.h"
 #include "globals.h"
 
+#include <QRandomGenerator>
+
 auto trainer = extract_fileData("trainer.txt");
 
 const std::string &Player::getItsName() const
@@ -41,8 +43,8 @@ Player::Player(std::string name)
 
 void Player::generatePokemons()
 {
-    for (int i = 1; i < 7; i++) {
-        if (isAi) {
+    if (isAi) {
+        for (int i = 1; i < 7; i++) {
             int identifier = itsIdentifier;
             auto t = trainer[identifier-1];
             int pokemonIdentifier = stoi(t[to_string(i)]);
@@ -50,9 +52,13 @@ void Player::generatePokemons()
             if (pokemonIdentifier != 0)
                 itsPokemons.push_back(new Pokemon(pokemonIdentifier, this));
         }
-        else
-            itsPokemons.push_back(new Pokemon(i, this));
     }
+    else {
+        addRandomPokemon();
+        addRandomPokemon();
+        addRandomPokemon();
+    }
+
 
     itsActivePokemon = itsPokemons.begin();
 }
@@ -80,6 +86,35 @@ int Player::computePokemonAlive()
     }
 
     return nbrAlive;
+}
+
+template <typename T>
+void remove_at(std::vector<T>& v, typename std::vector<T>::size_type n)
+{
+    std::swap(v[n], v.back());
+    v.pop_back();
+}
+
+void Player::addRandomPokemon()
+{
+    if (itsPokemons.size() == 6) {
+        int randomDel = QRandomGenerator::global()->bounded(4);
+
+        remove_at(itsPokemons, randomDel);
+    }
+
+    int randomPokemon = QRandomGenerator::global()->bounded(NBR_POKEMON-1)+1;
+    itsPokemons.push_back(new Pokemon(randomPokemon, this));
+
+    itsActivePokemon = itsPokemons.begin();
+}
+
+void Player::removeDeadPokemon()
+{
+    for (unsigned int i = 0; i < itsPokemons.size(); i++) {
+        if ( not itsPokemons[i]->isAlive() )
+            remove_at(itsPokemons, i);
+    }
 }
 
 

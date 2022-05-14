@@ -17,7 +17,7 @@ public:
     void initialize();
 
     void loss(Player* playerWhoLost);
-    void startBattle(Battle* _battle);
+    void startBattle(Battle* _battle, int trainer);
 
     Player *getFirstPlayer() const;
 };

@@ -127,7 +127,7 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
     you = aPlayer;
     opponent = anotherPlayer;
 
-    Pokemon* myPokemon = you->getItsActivePokemon();
+    Pokemon* _myPokemon = you->getItsActivePokemon();
     Pokemon* otherPokemon = opponent->getItsActivePokemon();
 
     CURRENT_ACTION = 0;
@@ -135,16 +135,13 @@ void Battle::setupBattle(Player *aPlayer, Player *anotherPlayer)
     ui->otherPokemon->setVisible(true);
     ui->myPokemon->setVisible(true);
 
-    QString pathMyModel = QString::fromStdString(":/" + myPokemon->getItsBackModel());
-    ui->myPokemon->setPixmap(pathMyModel);
+    ui->myPokemon->setPixmap(QString::fromStdString(":/" + _myPokemon->getItsBackModel()));
+    ui->otherPokemon->setPixmap(QString::fromStdString(":/" + otherPokemon->getItsModel()));
 
-    QString pathOtherModel = QString::fromStdString(":/" + otherPokemon->getItsModel());
-    ui->otherPokemon->setPixmap(pathOtherModel);
-
-    ui->myName->setText(QString::fromStdString(myPokemon->getItsName()));
+    ui->myName->setText(QString::fromStdString(_myPokemon->getItsName()));
     ui->otherName->setText(QString::fromStdString(otherPokemon->getItsName()));
 
-    resizeHealthBar(ui->myHealthBar, myPokemon);
+    resizeHealthBar(ui->myHealthBar, _myPokemon);
     ui->otherHealthBar->setFixedWidth(HEALTHBAR_WIDTH);
 
     setButtonAction(ACTION_MAIN);

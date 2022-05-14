@@ -30,6 +30,9 @@ public:
 
     int computePokemonAlive();
 
+    void addRandomPokemon();
+    void removeDeadPokemon();
+
     const std::string &getItsName() const;
 
     Pokemon* getItsActivePokemon() const;

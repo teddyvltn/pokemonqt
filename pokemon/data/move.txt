@@ -1,4 +1,10 @@
 id,name,type,power,pp
-1,Coup de boule,grass,80,20
-2,Lance flamme,fire,40,40
-3,Fouet de liane,grass,60,15
+1,Fire Punch,fire,80,20
+2,Flamethrower,fire,40,40
+3,Vine whip,grass,60,15
+4,Electric Punch,electric,65,15
+5,Water Gun,water,50,15
+6,Surf,water,90,15
+7,Hydro Pump,water,30,15
+8,Thunder Shock,electric,50,15
+9,Petal Dance,grass,20,15

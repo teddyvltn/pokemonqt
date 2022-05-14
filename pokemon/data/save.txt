@@ -1,1 +1,0 @@
-name,credit,pk1,pk2,pk3,pk4,pk5,pk6,record

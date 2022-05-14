@@ -15,11 +15,11 @@ public:
     explicit MainMenu(QWidget* parent=0);
     ~MainMenu();
 
+    void refreshMain();
+
 private slots:
     void on_pushButton_2_clicked();
 
-    void battleReward();
-    void battleNoReward();
 
 signals:
     void moveToBattle();

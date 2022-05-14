@@ -16,7 +16,7 @@ Game::Game()
 
 void Game::initialize()
 {
-    firstPlayer = new Player("Francis");
+    firstPlayer = new Player("Teddy");
     firstPlayer->generatePokemons();
 
     populateStringType();
@@ -29,10 +29,9 @@ void Game::loss(Player *playerWhoLost)
 
 }
 
-void Game::startBattle(Battle* _battle)
+void Game::startBattle(Battle* _battle, int trainer)
 {
-
-    Player* secondPlayer = new Player(1);
+    Player* secondPlayer = new Player(trainer);
     secondPlayer->generatePokemons();
 
     _battle->setupBattle(firstPlayer, secondPlayer);

@@ -11,6 +11,8 @@
 
 Game* game = new Game();
 
+int nbrCombat = 1;
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent), ui(new Ui::Widget)
 {
@@ -28,9 +30,12 @@ Widget::Widget(QWidget *parent)
     ui->stackedWidget->insertWidget(BATTLE, _battle);
     ui->stackedWidget->insertWidget(SWITCH, _switch);
 
+    //mainMenu -> battle
+
+    //save_data(game->getFirstPlayer());
+
     ui->stackedWidget->setCurrentIndex(MAIN_MENU);
 
-    //mainMenu -> battle
     connect(_mainMenu, SIGNAL(moveToBattle()), this, SLOT(moveToBattle()));
     connect(_battle, SIGNAL(battleEnded(Player*,Player*)), this, SLOT(battleEnded(Player*, Player*)));
     connect(_battle, SIGNAL(switchMenu(bool)), this, SLOT(switchMenu(bool)));
@@ -38,8 +43,7 @@ Widget::Widget(QWidget *parent)
 
     connect(_switch, SIGNAL(refresh(bool)), _battle, SLOT(refresh(bool)));
 
-    save_data(game->getFirstPlayer());
-
+    _mainMenu->refreshMain();
 }
 
 Widget::~Widget()
@@ -67,15 +71,29 @@ void Widget::moveToBattle()
 {
     //_battle = new Battle();
     ui->stackedWidget->setCurrentIndex(BATTLE);
-    game->startBattle(_battle);
+    game->startBattle(_battle, nbrCombat);
 }
 
 void Widget::battleEnded(Player* winner, Player* losser)
 {
     std::cout << winner->getItsName() << std::endl;
     if (winner == game->getFirstPlayer()) {
+        winner->addRandomPokemon();
+        winner->removeDeadPokemon();
 
+        nbrCombat++;
+    }
+    else {
+        losser->removeDeadPokemon();
+
+        losser->addRandomPokemon();
+        losser->addRandomPokemon();
+
+        losser->removeDeadPokemon();
     }
     delay(500);
+
+
+    _mainMenu->refreshMain();
     ui->stackedWidget->setCurrentIndex(MAIN_MENU);
 }
